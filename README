@@ -20,16 +20,16 @@ public static int notify(String app, String event, String description, int prior
 	 * param apiKey One or more 48 bytes long API key, separated by commas.
 	 * param devKey Developer key.
 	 * return Return values:
-	 * 		1 = Notification sent
-	 * 	   -1 = app must have between 1 and 256 characters
-	 * 	   -2 = event must have between 1 and 1000 characters
-	 *     -3 = description must have between 1 and 10000 characters
-	 *     -4 = priority must be one of these values: -2, -1, 0, 1 ,2
-	 *     -5 = One or more API keys are of an invalid format. Must be a 48 characters hexadecimal string
-	 *     -6 = Developer key is of an invalid format
-	 *     -7 = Exception. Use getLastError() for some details.
-	 *     -8 = Server returned an error. Check getLastError() for more details.
-	 *     -9 = Problem sending the message. Check getLastError() for the message returned.
+	 *		 1 = Notification sent
+	 *		-1 = app must have between 1 and 256 characters
+	 *		-2 = event must have between 1 and 1000 characters
+	 *		-3 = description must have between 1 and 10000 characters
+	 *		-4 = priority must be one of these values: -2, -1, 0, 1 ,2
+	 *		-5 = One or more API keys are of an invalid format. Must be a 48 characters hexadecimal string
+	 *		-6 = Developer key is of an invalid format
+	 *		-7 = Exception. Use getLastError() for some details.
+	 *		-8 = Server returned an error. Check getLastError() for more details.
+	 *		-9 = Problem sending the message. Check getLastError() for the message returned.
 
 Other signatures:
 public static int notify(String app, String event, String description, int priority, String apiKey)	 
@@ -41,12 +41,12 @@ public static int verify(String apiKey, String devKey)
 	 * param apiKey Only one 48 bytes long API key.
 	 * param devKey Developer key.
 	 * return Return values:
-	 * 		1 = Notification sent
-	 *     -1 = API keys is not valid. Must be a 48bytes hexadecimal string.
-	 *     -2 = Developer key is of an invalid format
-	 *     -3 = Exception. Use getLastError() for some details.
-	 *     -4 = Server returned an error. Check getLastError() for more details.
-	 *     -5 = Problem sending the message. Check getLastError() for the message returned.
+	 *		 1 = Key is valid
+	 *		-1 = API keys is not valid. Must be a 48bytes hexadecimal string.
+	 *		-2 = Developer key is of an invalid format
+	 *		-3 = Exception. Use getLastError() for some details.
+	 *		-4 = Server returned an error. Check getLastError() for more details.
+	 *		-5 = Problem sending the message. Check getLastError() for the message returned.
 	
 Other signatures:
 public static int verify(String apiKey)
@@ -98,11 +98,11 @@ public class MyApp {
 			}
 		}
 		
+		// Sending a notification
 		if (NMAClientLib.notify(lAppName, lEvent, lDesc, lPriority, lApiKey, devKey) == 1) {
 			System.out.println("Message sent!");
 		} else {
 			System.out.println(NMAClientLib.getLastError());
 		}
-		
 	}
 }
