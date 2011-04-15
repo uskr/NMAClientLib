@@ -36,8 +36,8 @@ Notify My Android (Java Library)
 	 *		-9 = Problem sending the message. Check getLastError() for the message returned.
 
 ##### Other signatures:
-public static int notify(String app, String event, String description, int priority, String apiKey)	 
-public static int notify(String app, String event, String description, String apiKey)
+	public static int notify(String app, String event, String description, int priority, String apiKey)	 
+	public static int notify(String app, String event, String description, String apiKey)
 
 #### verify()
 
@@ -53,64 +53,64 @@ public static int notify(String app, String event, String description, String ap
 	 *		-5 = Problem sending the message. Check getLastError() for the message returned.
 	
 ##### Other signatures:
-public static int verify(String apiKey)
+	public static int verify(String apiKey)
 	 
 Example on how to use the library
 ---------------------------------
 
-import com.usk.lib.NMAClientLib;
+	import com.usk.lib.NMAClientLib;
 
-public class MyApp {
+	public class MyApp {
 
-	public static void main(String[] args) {
-		// Syntax
-		if (args.length < 4) {
-			System.out.println("Usage :");
-			System.out.println("java MyApp <apikey> <application_name> <event> <description> [priority] [devkey]");
-			return;
-		}
-		// Load parameters
-		String lApiKey = args[0];
-		String lAppName = args[1];
-		String lEvent = args[2];
-		String lDesc = args[3];
-		int lPriority = 0;
-		String devKey = null;
-		if (args.length > 4) {
-			try {
-				lPriority = Integer.parseInt(args[4]);
-			} catch (Exception e) {
-				System.out.println("Parameter 'priority' must be an Integer.");
+		public static void main(String[] args) {
+			// Syntax
+			if (args.length < 4) {
+				System.out.println("Usage :");
+				System.out.println("java MyApp <apikey> <application_name> <event> <description> [priority] [devkey]");
+				return;
 			}
-			if (args.length > 5) devKey = args[5];
-		}
-
-		// lApiKey could be a list of comma separated keys, but notify only accepts one key per call
-		if ( lApiKey.indexOf(',') == -1 ) {
-			if(NMAClientLib.verify(lApiKey) == 1) {
-				System.out.println("Key [" + lApiKey + "] is valid!");
-			} else {
-				System.out.println(NMAClientLib.getLastError());
+			// Load parameters
+			String lApiKey = args[0];
+			String lAppName = args[1];
+			String lEvent = args[2];
+			String lDesc = args[3];
+			int lPriority = 0;
+			String devKey = null;
+			if (args.length > 4) {
+				try {
+					lPriority = Integer.parseInt(args[4]);
+				} catch (Exception e) {
+					System.out.println("Parameter 'priority' must be an Integer.");
+				}
+				if (args.length > 5) devKey = args[5];
 			}
-		} else {
-			String apiKeysArray[] = lApiKey.split(",");
-			for(int i=0; i<apiKeysArray.length; i++) { 
-				if(NMAClientLib.verify(apiKeysArray[i]) == 0) {
-					System.out.println("Key [" + apiKeysArray[i] + "] is valid!");
+
+			// lApiKey could be a list of comma separated keys, but notify only accepts one key per call
+			if ( lApiKey.indexOf(',') == -1 ) {
+				if(NMAClientLib.verify(lApiKey) == 1) {
+					System.out.println("Key [" + lApiKey + "] is valid!");
 				} else {
 					System.out.println(NMAClientLib.getLastError());
 				}
+			} else {
+				String apiKeysArray[] = lApiKey.split(",");
+				for(int i=0; i<apiKeysArray.length; i++) { 
+					if(NMAClientLib.verify(apiKeysArray[i]) == 0) {
+						System.out.println("Key [" + apiKeysArray[i] + "] is valid!");
+					} else {
+						System.out.println(NMAClientLib.getLastError());
+					}
+				}
+			}
+			
+			// Sending a notification
+			if (NMAClientLib.notify(lAppName, lEvent, lDesc, lPriority, lApiKey, devKey) == 1) {
+				System.out.println("Message sent!");
+			} else {
+				System.out.println(NMAClientLib.getLastError());
 			}
 		}
-		
-		// Sending a notification
-		if (NMAClientLib.notify(lAppName, lEvent, lDesc, lPriority, lApiKey, devKey) == 1) {
-			System.out.println("Message sent!");
-		} else {
-			System.out.println(NMAClientLib.getLastError());
-		}
 	}
-}
 
 License (MIT)
 -------------
