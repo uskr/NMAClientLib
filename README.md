@@ -1,13 +1,13 @@
 Notify My Android (Java Library)
 ================================
 
-# Notify My Android (http://nma.usk.bz)
-# NMAClientLib - Java Library to access NMA public API
-# Last Stable Version: 1.0.0
-# For developers: http://github.com/uskr/NMAClientLib
-# Author: Adriano Maia (adriano@usk.bz)
+	Notify My Android (http://nma.usk.bz)
+	NMAClientLib - Java Library to access NMA public API
+	Last Stable Version: 1.0.0
+	For developers: http://github.com/uskr/NMAClientLib
+	Author: Adriano Maia (adriano@usk.bz)
 
-This library provides an easy to use API for Java that interfaces with Notify My Android public API.
+	This library provides an easy to use API for Java that interfaces with Notify My Android public API.
 
 ### Methods implemented:
 
