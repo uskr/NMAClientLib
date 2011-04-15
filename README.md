@@ -1,3 +1,6 @@
+Notify My Android (Java Library)
+================================
+
 # Notify My Android (http://nma.usk.bz)
 # NMAClientLib - Java Library to access NMA public API
 # Last Stable Version: 1.0.0
@@ -6,13 +9,14 @@
 
 This library provides an easy to use API for Java that interfaces with Notify My Android public API.
 
-Methods implemented:
-- notify() : Send a notification
-- verify() : Checks if an API key is valid
+### Methods implemented:
 
-# notify()
+	- notify() : Send a notification
+	- verify() : Checks if an API key is valid
 
-public static int notify(String app, String event, String description, int priority, String apiKey, String devKey)
+#### notify()
+
+	public static int notify(String app, String event, String description, int priority, String apiKey, String devKey)
 	 * param app Application name (Up to 256 characters)
 	 * param event Short description of the even or a subject (Up to 1000 characters)
 	 * param description Long description or message body (Up to 10000 characters)
@@ -31,13 +35,13 @@ public static int notify(String app, String event, String description, int prior
 	 *		-8 = Server returned an error. Check getLastError() for more details.
 	 *		-9 = Problem sending the message. Check getLastError() for the message returned.
 
-Other signatures:
+##### Other signatures:
 public static int notify(String app, String event, String description, int priority, String apiKey)	 
 public static int notify(String app, String event, String description, String apiKey)
 
-# verify()
+#### verify()
 
-public static int verify(String apiKey, String devKey)
+	public static int verify(String apiKey, String devKey)
 	 * param apiKey Only one 48 bytes long API key.
 	 * param devKey Developer key.
 	 * return Return values:
@@ -48,10 +52,11 @@ public static int verify(String apiKey, String devKey)
 	 *		-4 = Server returned an error. Check getLastError() for more details.
 	 *		-5 = Problem sending the message. Check getLastError() for the message returned.
 	
-Other signatures:
+##### Other signatures:
 public static int verify(String apiKey)
 	 
-# Example on how to use the library:
+Example on how to use the library
+---------------------------------
 
 import com.usk.lib.NMAClientLib;
 
@@ -106,3 +111,26 @@ public class MyApp {
 		}
 	}
 }
+
+License (MIT)
+-------------
+
+    Copyright (c) 2010-2011, Adriano Maia.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    THE SOFTWARE.
