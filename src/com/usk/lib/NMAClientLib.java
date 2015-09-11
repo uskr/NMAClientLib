@@ -29,7 +29,7 @@ import org.xml.sax.InputSource;
  */
 
 public class NMAClientLib {
-	private static String DEFAULT_URL = "https://nma.usk.bz";
+	private static String DEFAULT_URL = "https://notifymyandroid.appspot.com";
 	private static String NOTIFY_PATH = "/publicapi/notify";
 	private static String VERIFY_PATH = "/publicapi/verify";
 	private static String METHOD_POST = "POST";
