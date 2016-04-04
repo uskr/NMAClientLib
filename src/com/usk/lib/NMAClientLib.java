@@ -20,8 +20,8 @@ import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 
 /*
- * Author: Adriano Maia (adriano@usk.bz)
- * Version: 1.0.0 (4/10/2011)
+ * Author: Adriano Maia (adriano@locked.io)
+ * Version: 1.0.1 (Apr 4 2016)
  * Description:
  * 		This library provides easy access to Notify My Android public API. Methods implemented:
  * 			- notify
